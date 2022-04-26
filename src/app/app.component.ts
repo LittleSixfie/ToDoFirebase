@@ -3,6 +3,7 @@ import {TodoServiceService} from './todo-service.service'
 import {Todo } from "./todo.model" 
 import {Router} from '@angular/router'
 
+import { YesNoPipe } from './yes-no.pipe';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,13 +14,18 @@ export class AppComponent {
   listShow:Todo[] = [{
     id:1,
     name:"Ejemplo",
-    date:"18/2/22",
-    done:"yes",
+    date2:new Date(2022,2,2),
+    done:true,
     description:"Example description" 
   }];
 
   constructor(public service:TodoServiceService, private router: Router){
-    this.listShow = service.getLista
+    let list:Todo[] = [];
+    this.service.getTodos().then(value => {
+      list = value;
+      this.listShow = value
+    })
+
   }
 
   refrescar(){

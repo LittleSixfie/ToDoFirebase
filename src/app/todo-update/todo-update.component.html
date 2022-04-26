@@ -3,14 +3,20 @@
     <input matInput placeholder="Nombre" [(ngModel)]="objectReaded.name">
   </mat-form-field>
   <br>
+
   <mat-form-field appearance="fill">
-    <mat-label>Fecha</mat-label>
-    <input matInput placeholder="Fecha" [(ngModel)]="objectReaded.date">
-  </mat-form-field>
-  <br>
+    <input matInput [matDatepicker]="date" placeholder="Choose a date" [(ngModel)]="objectReaded.date2">
+    <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+    <mat-datepicker #date></mat-datepicker>
+</mat-form-field>
+
+<br>
   <mat-form-field appearance="fill">
     <mat-label>Acabado</mat-label>
-    <input matInput placeholder="Acabado" [(ngModel)]="objectReaded.done" >
+    <mat-select [(value)]="objectReaded.done">
+      <mat-option value="true">Si</mat-option>
+      <mat-option value="false">No</mat-option>
+    </mat-select>
   </mat-form-field>
   <br>
   <mat-form-field appearance="fill">

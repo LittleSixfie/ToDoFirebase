@@ -12,6 +12,8 @@ import { environment } from 'src/environments/environment';
 import { provideFirestore,getFirestore,connectFirestoreEmulator  } from '@angular/fire/firestore';
 import { initializeApp,provideFirebaseApp, getApp } from '@angular/fire/app';
 
+import {MatSelectModule} from '@angular/material/select'; 
+import { MatNativeDateModule } from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +22,8 @@ import { TodoReadComponent } from './todo-read/todo-read.component';
 import { TodoCreateComponent } from './todo-create/todo-create.component';
 import { TodoDeleteComponent } from './todo-delete/todo-delete.component';
 import { TodoUpdateComponent } from './todo-update/todo-update.component';
+import { YesNoPipe } from './yes-no.pipe';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,8 @@ import { TodoUpdateComponent } from './todo-update/todo-update.component';
     TodoReadComponent,
     TodoCreateComponent,
     TodoDeleteComponent,
-    TodoUpdateComponent
+    TodoUpdateComponent,
+    YesNoPipe
   ],
   imports: [
     BrowserModule,
@@ -40,8 +45,11 @@ import { TodoUpdateComponent } from './todo-update/todo-update.component';
     FormsModule,
     MatCardModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() => getFirestore()),
+    MatSelectModule,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

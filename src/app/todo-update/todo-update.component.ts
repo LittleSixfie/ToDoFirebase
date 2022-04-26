@@ -15,8 +15,8 @@ export class TodoUpdateComponent implements OnInit {
   objectReaded:Todo = {
     id:666,
     name:"temp",
-    date:"temp",
-    done:"temp",
+    date2:new Date,
+    done:true,
     description:"temp" 
   };
 
