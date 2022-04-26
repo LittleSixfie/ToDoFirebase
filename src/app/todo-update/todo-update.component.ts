@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import {Todo} from "../todo.model"
 import { TodoServiceService } from '../todo-service.service';
 import { Router } from '@angular/router';
+import { Timestamp } from '@angular/fire/firestore';
 
 
 @Component({
@@ -20,16 +21,27 @@ export class TodoUpdateComponent implements OnInit {
     description:"temp" 
   };
 
-  constructor(private route: ActivatedRoute, public service:TodoServiceService, private router: Router) { }
+  constructor(private route: ActivatedRoute, public service:TodoServiceService, private router: Router) {
 
-  ngOnInit(): void {
-    let result:Todo = this.service.getById(this.route.snapshot.params['id']);
+   }
+
+  async ngOnInit(): Promise<void> {
+    let result:Todo ={
+      id: 0
+    }
+    await this.service.getTodoDoc(this.route.snapshot.params['id']).then(response => {
+      const data = response.data() as any;
+      Object.keys(data)
+        .filter((key) => data[key] instanceof Timestamp)
+        .forEach((key) => (data[key] = data[key].toDate()));
+      result = data;
+    });
     this.objectReaded = result
   }
 
   update(){
-    this.service.updateById(this.route.snapshot.params['id'], this.objectReaded);
-    this.router.navigate(['/read/+' + this.route.snapshot.params['id']]);
+    this.service.updateDoc(this.route.snapshot.params['id'], this.objectReaded);
+    this.router.navigate(['']);
   }
 
 }

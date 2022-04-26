@@ -3,7 +3,7 @@ import { Todo } from './todo.model';
 import { Router } from '@angular/router';
 import { NotFoundError } from 'rxjs';
 
-import { addDoc, updateDoc, getDocs } from '@firebase/firestore';
+import { addDoc, updateDoc, getDocs, deleteDoc } from '@firebase/firestore';
 import {
   Firestore,
   collectionData,
@@ -74,6 +74,23 @@ export class TodoServiceService {
     return list;
   }
 
+  deleteDoc(id:number){
+    const dbInstance = doc(this.firestore, ('todo/' + id));
+    deleteDoc(dbInstance);
+    this.router.navigate([""])
+  }
+
+  updateDoc(id:number, objetoUpdate:Todo){
+    updateDoc(doc(this.firestore, 'todo/' + id), {
+      id: id,
+      name: objetoUpdate.name,
+      date2: objetoUpdate.date2,
+      done: objetoUpdate.done,
+      description: objetoUpdate.description,
+    });
+    
+  }
+
   //===============================================================
   get getLista(): Todo[] {
     return this.list;
@@ -99,10 +116,12 @@ export class TodoServiceService {
   }
 
   deleteById(searchId: number) {
+
     let res = this.list.find((searchObj) => searchObj.id == searchId);
     if (res != undefined) {
       this.list.splice(this.list.indexOf(res, 0), 1);
     }
+
   }
 
   updateById(searchId: number, updatedTodo: Todo) {

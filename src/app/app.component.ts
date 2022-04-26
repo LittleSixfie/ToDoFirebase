@@ -37,7 +37,7 @@ export class AppComponent {
   }
 
   borrar(id:number){
-    this.service.deleteById(id);
+    this.service.deleteDoc(id);
   }
 
   update(id:number){
