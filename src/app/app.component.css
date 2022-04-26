@@ -1,0 +1,38 @@
+#first-card{
+    margin-bottom: 5%;
+    
+    
+}
+
+#second-card{
+    margin-top:5%;
+}
+
+#attribute{
+    margin:2%
+}
+.mat-input-element{
+    margin:2%;
+}
+
+.boton{
+    margin: 2%;
+}
+
+mat-card-title{
+    margin-left: 2%;
+}
+
+#create{
+    margin-left: 2%;
+}
+
+html, body {
+    height: 100%;
+}
+
+#container{
+    background-color: #3f51b5;
+    height: 100%;
+    padding:5%;
+}

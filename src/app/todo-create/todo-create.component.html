@@ -1,0 +1,22 @@
+
+<mat-form-field appearance="fill">
+  <mat-label>Nombre</mat-label>
+  <input matInput placeholder="Nombre" [(ngModel)]="name">
+</mat-form-field>
+<br>
+<mat-form-field appearance="fill">
+  <mat-label>Fecha</mat-label>
+  <input matInput placeholder="Fecha" [(ngModel)]="date">
+</mat-form-field>
+<br>
+<mat-form-field appearance="fill">
+  <mat-label>Acabado</mat-label>
+  <input matInput placeholder="Acabado" [(ngModel)]="done" >
+</mat-form-field>
+<br>
+<mat-form-field appearance="fill">
+  <mat-label>Descripción</mat-label>
+  <textarea matInput [(ngModel)]="description" placeholder="Descripción" ></textarea>
+</mat-form-field>
+<br>
+<button mat-raised-button color="accent" (click)="add()">Crear</button>
