@@ -14,7 +14,6 @@ export class TodoDeleteComponent implements OnInit {
   constructor(private route: ActivatedRoute, public service:TodoServiceService) { }
 
   ngOnInit(): void {
-    this.service.deleteById(this.route.snapshot.params['id'])
   }
 
 }

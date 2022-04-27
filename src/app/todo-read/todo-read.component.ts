@@ -25,7 +25,7 @@ export class TodoReadComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    let result: Todo = this.service.getById(this.route.snapshot.params['id']);
+    //let result: Todo = this.service.getById(this.route.snapshot.params['id']);
     this.service
       .getTodoDoc(this.route.snapshot.params['id'])
       .then((response) => {

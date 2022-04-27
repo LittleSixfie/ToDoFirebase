@@ -92,6 +92,7 @@ export class TodoServiceService {
   }
 
   //===============================================================
+  /*
   get getLista(): Todo[] {
     return this.list;
   }
@@ -131,4 +132,6 @@ export class TodoServiceService {
       this.list[index] = updatedTodo;
     }
   }
+
+  */
 }

@@ -28,19 +28,30 @@ export class AppComponent {
 
   }
 
+  ngOnInit(): void {
+
+  }
+
   refrescar(){
-    this.listShow = this.service.getLista
+    let list:Todo[] = [];
+    this.service.getTodos().then(value => {
+      list = value;
+      this.listShow = value
+    })
   }
 
   leer(id:number){
     this.router.navigate(['/read/'+id]);
+    this.refrescar()
   }
 
   borrar(id:number){
     this.service.deleteDoc(id);
+    this.refrescar()
   }
 
   update(id:number){
     this.router.navigate(['/update/'+id]);
+    this.refrescar()
   }
 }

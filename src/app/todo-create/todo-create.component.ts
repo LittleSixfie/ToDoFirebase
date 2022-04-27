@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoServiceService } from '../todo-service.service';
 import { Todo } from '../todo.model';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-todo-create',
@@ -15,7 +16,7 @@ export class TodoCreateComponent implements OnInit {
   id: number = 0;
   date2:Date = new Date;
 
-  constructor(public service: TodoServiceService) {}
+  constructor(public service: TodoServiceService, private app: AppComponent) {}
 
   ngOnInit(): void {}
 
@@ -29,5 +30,6 @@ export class TodoCreateComponent implements OnInit {
     };
     //this.service.addTodo(newTodo);
     this.service.createTodoDoc(newTodo);
+    this.app.refrescar()
   }
 }
