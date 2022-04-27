@@ -1,21 +1,21 @@
-<mat-form-field appearance="fill">
+<mat-form-field appearance="fill" id="nombre">
   <mat-label>Nombre</mat-label>
-  <input matInput placeholder="Nombre" [(ngModel)]="name" />
+  <input matInput placeholder="Nombre" [(ngModel)]="name" required/>
 </mat-form-field>
 
 <br />
 
-<mat-form-field appearance="fill">
-    <input matInput [matDatepicker]="date" placeholder="Choose a date" [(ngModel)]="date2">
+<mat-form-field appearance="fill" id="date">
+    <input matInput [matDatepicker]="date" placeholder="Choose a date" [(ngModel)]="date2" required>
     <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
     <mat-datepicker #date></mat-datepicker>
 </mat-form-field>
 
 <br />
 
-<mat-form-field appearance="fill">
+<mat-form-field appearance="fill" id="done">
   <mat-label>Acabado</mat-label>
-  <mat-select [(value)]="done">
+  <mat-select [(value)]="done" required>
     <mat-option value="true">Si</mat-option>
     <mat-option value="false">No</mat-option>
   </mat-select>
@@ -23,15 +23,16 @@
 
 <br />
 
-<mat-form-field appearance="fill">
+<mat-form-field appearance="fill" id="textarea">
   <mat-label>Descripción</mat-label>
   <textarea
     matInput
     [(ngModel)]="description"
     placeholder="Descripción"
+    required
   ></textarea>
 </mat-form-field>
 
 <br />
 
-<button mat-raised-button color="accent" (click)="add()">Crear</button>
+<button mat-raised-button color="accent" (click)="add()" id="boton">Crear</button>

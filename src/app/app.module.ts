@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
 import { provideFirestore,getFirestore,connectFirestoreEmulator  } from '@angular/fire/firestore';
 import { initializeApp,provideFirebaseApp, getApp } from '@angular/fire/app';
 
+import {MatGridListModule} from '@angular/material/grid-list'; 
 import {MatSelectModule} from '@angular/material/select'; 
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker'; 
@@ -49,7 +50,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() => getFirestore()),
     MatSelectModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

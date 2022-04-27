@@ -3,18 +3,28 @@
 
 <mat-card  id="first-card">
   <mat-card-title>TODO List <h1 id="sexy-edition">Firebase Edition</h1></mat-card-title>
-  <mat-list>
-    <mat-list-item role="listitem" *ngFor="let line of listShow">
-      <div id="attribute" >{{ line.name }}</div>
-      <div id="attribute">{{ line.date2 | date :'short'}}</div>
-      <div id="attribute">{{ line.done | yesNo }}</div>
-      <button class="boton" mat-raised-button color="accent" (click)="leer(line.id)">Read</button>
-      <button class="boton" mat-raised-button color="accent" (click)="borrar(line.id)">
-        Delete
-      </button>
-      <button class="boton" mat-raised-button color="accent" (click)="update(line.id)">
-        Update
-      </button>
+  <div id="campos">
+    <mat-card-header id="campo" >Nombre</mat-card-header>
+    <mat-card-header id="campoDone" >Fecha</mat-card-header>
+    <mat-card-header id="campo" >Acabada</mat-card-header>
+  </div>
+  
+  <mat-list id="todas">
+    <mat-list-item  role="listitem" *ngFor="let line of listShow">
+      <div id="atributos">
+        <div id="attribute" >{{ line.name }}</div>
+        <div id="attribute">{{ line.date2 | date :'short'}}</div>
+        <div id="attributeDone">{{ line.done  }}</div>
+      </div>
+      <div id="botones" >
+        <button class="boton" mat-raised-button color="accent" (click)="leer(line.id)">Read</button>
+        <button class="boton" mat-raised-button color="accent" (click)="borrar(line.id)">
+          Delete
+        </button>
+        <button class="boton" mat-raised-button color="accent" (click)="update(line.id)">
+          Update
+        </button>
+      </div>
     </mat-list-item>
   </mat-list>
 

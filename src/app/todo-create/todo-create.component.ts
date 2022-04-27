@@ -21,15 +21,17 @@ export class TodoCreateComponent implements OnInit {
   ngOnInit(): void {}
 
   add() {
-    let newTodo: Todo = {
-      name: this.name,
-      id: this.id,
-      description: this.description,
-      date2: this.date2,
-      done: this.done,
-    };
-    //this.service.addTodo(newTodo);
-    this.service.createTodoDoc(newTodo);
-    this.app.refrescar()
+    if(!(this.name == "") || !(this.description == "")){
+      let newTodo: Todo = {
+        name: this.name,
+        id: this.id,
+        description: this.description,
+        date2: this.date2,
+        done: this.done,
+      };
+      //this.service.addTodo(newTodo);
+      this.service.createTodoDoc(newTodo);
+      this.app.refrescar()
+    }
   }
 }
